@@ -31,11 +31,10 @@ class Ads {
     }
 
     
-    public function getAllAds()
+    public function getAds()
     {
-        $query = "SELECT * FROM ads";
-        $stmt = $this->pdo->query($query);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $query = "SELECT *, ads.address AS address FROM ads JOIN branch ON branch.id=ads.branch_id ";
+        return $this->pdo->query($query)->fetchAll();
     }
 
  

@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\DB;
 use PDO;
 
 class User {
@@ -9,7 +9,8 @@ class User {
 
     public function __construct()
     {
-        $this->pdo = DB::connect();
+        $db = new DB();
+        $this->pdo = $db->connect();
     }
 
     public function create(string $username, string $position, string $gender, string $phone) :bool
